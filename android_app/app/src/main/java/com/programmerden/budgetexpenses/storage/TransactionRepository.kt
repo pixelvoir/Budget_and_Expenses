@@ -11,4 +11,16 @@ class TransactionRepository(
     suspend fun insert(transaction: Transaction) {
         transactionDao.insert(transaction)
     }
+
+    suspend fun update(transaction: Transaction) {
+        transactionDao.update(transaction)
+    }
+
+    suspend fun delete(transactionId: Int) {
+        transactionDao.deleteById(transactionId)
+    }
+
+    suspend fun clearAll() {
+        transactionDao.clearAll()
+    }
 }

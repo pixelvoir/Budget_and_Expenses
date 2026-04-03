@@ -1,0 +1,16 @@
+[
+    {"amount": 450.0, "date": "2026-03-01", "merchant": "PIZZA HUT", "isCredit": false, "category": "food"},
+    {"amount": 320.0, "date": "2026-03-02", "merchant": "UBER EATS", "isCredit": false, "category": "food"},
+    {"amount": 1200.0, "date": "2026-03-03", "merchant": "AIRBNB STAY", "isCredit": false, "category": "travel"},
+    {"amount": 680.0, "date": "2026-03-04", "merchant": "FLIGHT BOOKING", "isCredit": false, "category": "travel"},
+    {"amount": 2890.0, "date": "2026-03-05", "merchant": "AMAZON SHOPPING", "isCredit": false, "category": "shopping"},
+    {"amount": 1450.0, "date": "2026-03-06", "merchant": "ZARA CLOTHES", "isCredit": false, "category": "shopping"},
+    {"amount": 350.0, "date": "2026-03-07", "merchant": "APOLLO PHARMACY", "isCredit": false, "category": "health"},
+    {"amount": 890.0, "date": "2026-03-08", "merchant": "WELLNESS CLINIC", "isCredit": false, "category": "health"},
+    {"amount": 2450.0, "date": "2026-03-09", "merchant": "ELECTRICITY BILL", "isCredit": false, "category": "bills"},
+    {"amount": 890.0, "date": "2026-03-10", "merchant": "INTERNET PROVIDER", "isCredit": false, "category": "bills"},
+    {"amount": 5000.0, "date": "2026-03-11", "merchant": "BANK TRANSFER", "isCredit": false, "category": "transfers"},
+    {"amount": 1200.0, "date": "2026-03-12", "merchant": "PAYPAL TRANSFER", "isCredit": false, "category": "transfers"},
+    {"amount": 450.0, "date": "2026-03-13", "merchant": "GIFT CARD", "isCredit": false, "category": "personal"},
+    {"amount": 320.0, "date": "2026-03-14", "merchant": "HOBBY SHOP", "isCredit": false, "category": "personal"}
+]

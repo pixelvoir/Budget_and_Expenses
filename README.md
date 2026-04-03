@@ -10,22 +10,8 @@ Application that can automatically read, store and display your daily expenses i
 - JDK 17
 - Kotlin + Gradle plugins (handled by project files)
 
-### Project Structure (Android)
-- Root Android project: `android_app/`
-- App module: `android_app/app/`
-
-### A) Run On Windows Emulator
-1. Open Android Studio and select `android_app` as the project root.
-2. Let Gradle sync complete.
-3. Open AVD Manager and create a virtual device (Pixel + Android 13/14 image).
-4. Start the emulator.
-5. Run the `app` configuration.
-6. Grant SMS permissions when prompted.
-
-Note: Emulators may not reliably receive real carrier SMS. Use manual sample mode in the app UI for parser testing.
-
-### B) Run On Actual Android Phone
-1. Enable Developer Options and USB debugging on the phone.
+## Run On An Android Phone
+1. Enable Developer Options and USB debugging on the phone(can use wireless too).
 2. Connect phone to Windows via USB and trust the computer.
 3. In Android Studio, select your physical device and run `app`.
 4. Grant SMS permissions (`READ_SMS`, `RECEIVE_SMS`).
@@ -45,23 +31,18 @@ Note: Emulators may not reliably receive real carrier SMS. Use manual sample mod
 - Room database storage:
 	- `transactions` table with indexed `timestamp`.
 	- Sort order is latest first (`timestamp DESC`).
-- Compose UI:
-	- Transaction list screen.
-	- Manual sample SMS input mode for debugging parser behavior without real SMS.
+- Trends like total amount spent per day or per month, avg amount spent in a week or by month, etc
+- Persistent manual categorisation, most reliable and remembers the category when assigned once, subsequently shows category based trends.
 
 ## 3. Planned Features
 
 - Sender/bank filtering to reduce unnecessary background parsing.
 - Better regex and parsing for diverse SMS templates.
-- Transaction direction detection (debit vs credit).
-- Category classifier integration (future ML/TFLite component).
-- Analytics screens:
-	- Monthly summaries
-	- Category breakdown
-	- Spending trends
+- Category classifier integration (first manual, then in the future ML/TFLite component).
+- Better Analytics
 
 ## 4. Known Issues
 
-- Debit vs credit intent is not yet reliably classified.
-- Merchant extraction regex is not the most consistent, considering the variety in the banks' style of messages..
-- Emulator SMS behavior may vary, so real-device testing is preferred for receiver validation.
+- Merchant extraction regex is not the most consistent, considering the variety in the banks' style of messages.
+- Merchant category classification may yet prove to be difficult given not all merchant names accurately reflect their products/category, a manual persistent categorisation is enough tbh
+- Right now goes through each and every SMS received, clearly not the most efficient

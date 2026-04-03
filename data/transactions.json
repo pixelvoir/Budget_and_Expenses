@@ -1,5 +1,25 @@
 [
     {
+        "amount": 1240.0,
+        "date": "2025-12-18",
+        "merchant": "DECEMBER MART"
+    },
+    {
+        "amount": 980.0,
+        "date": "2026-01-10",
+        "merchant": "JAN GROCERY"
+    },
+    {
+        "amount": 1535.0,
+        "date": "2026-02-14",
+        "merchant": "FEB FUEL"
+    },
+    {
+        "amount": 2190.0,
+        "date": "2026-03-05",
+        "merchant": "MARCH DINER"
+    },
+    {
         "amount": 320.0,
         "date": "2026-03-22",
         "merchant": "Mr SRISAILAM"
