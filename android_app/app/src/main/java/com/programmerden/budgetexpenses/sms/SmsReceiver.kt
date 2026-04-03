@@ -35,7 +35,8 @@ class SmsReceiver : BroadcastReceiver() {
                         amount = parsed.amount,
                         merchant = parsed.merchant,
                         timestamp = sms.timestampMillis,
-                        parsedDate = parsed.parsedDate
+                        parsedDate = parsed.parsedDate,
+                        isCredit = parsed.isCredit
                     )
 
                     dao.insert(transaction)

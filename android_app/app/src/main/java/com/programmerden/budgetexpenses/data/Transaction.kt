@@ -14,5 +14,6 @@ data class Transaction(
     val amount: Double,
     val merchant: String,
     val timestamp: Long,
-    val parsedDate: String?
+    val parsedDate: String?,
+    val isCredit: Boolean = false
 )

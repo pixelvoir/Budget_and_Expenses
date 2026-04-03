@@ -8,13 +8,16 @@ import java.util.Locale
 data class ParsedTransaction(
     val amount: Double,
     val merchant: String,
-    val parsedDate: String?
+    val parsedDate: String?,
+    val isCredit: Boolean
 )
 
 class SmsParser(
     private val amountPatterns: List<Regex> = RegexPatterns.amountPatterns,
+    private val creditMessagePatterns: List<Regex> = RegexPatterns.creditMessagePatterns,
     private val datePatterns: List<Regex> = RegexPatterns.datePatterns,
-    private val merchantPatterns: List<Regex> = RegexPatterns.merchantPatterns
+    private val creditMerchantPatterns: List<Regex> = RegexPatterns.creditMerchantPatterns,
+    private val debitMerchantPatterns: List<Regex> = RegexPatterns.debitMerchantPatterns
 ) {
 
     private val dateFormats = listOf(
@@ -42,8 +45,14 @@ class SmsParser(
         return null
     }
 
-    fun extractMerchant(text: String): String? {
-        for (pattern in merchantPatterns) {
+    fun isCreditMessage(text: String): Boolean {
+        return creditMessagePatterns.any { pattern -> pattern.containsMatchIn(text) }
+    }
+
+    fun extractMerchant(text: String, isCreditMessage: Boolean): String? {
+        val patterns = if (isCreditMessage) creditMerchantPatterns else debitMerchantPatterns
+
+        for (pattern in patterns) {
             val value = pattern.find(text)?.groupValues?.getOrNull(1)?.trim() ?: continue
             if (value.isNotEmpty()) return value
         }
@@ -52,8 +61,9 @@ class SmsParser(
 
     fun parse(text: String): ParsedTransaction? {
         val amount = extractAmount(text)
-        val merchant = extractMerchant(text)
         val parsedDate = extractDate(text)
+        val isCredit = isCreditMessage(text)
+        val merchant = extractMerchant(text, isCredit)
 
         if (amount == null || merchant == null) {
             return null
@@ -62,7 +72,8 @@ class SmsParser(
         return ParsedTransaction(
             amount = amount,
             merchant = merchant,
-            parsedDate = parsedDate
+            parsedDate = parsedDate,
+            isCredit = isCredit
         )
     }
 

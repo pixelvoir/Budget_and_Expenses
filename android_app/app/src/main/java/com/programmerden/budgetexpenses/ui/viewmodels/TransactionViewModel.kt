@@ -31,7 +31,8 @@ class TransactionViewModel(application: Application) : AndroidViewModel(applicat
             amount = parsed.amount,
             merchant = parsed.merchant,
             timestamp = System.currentTimeMillis(),
-            parsedDate = parsed.parsedDate
+            parsedDate = parsed.parsedDate,
+            isCredit = parsed.isCredit
         )
 
         viewModelScope.launch {

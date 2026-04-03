@@ -1,0 +1,18 @@
+# Android
+.gradle/
+local.properties
+*.iml
+.idea/
+.DS_Store
+
+# Build folders (VERY IMPORTANT)
+build/
+*/build/
+
+# Kotlin / Java
+*.class
+
+# Generated
+captures/
+.externalNativeBuild/
+.cxx/
